@@ -1,4 +1,4 @@
-const http = require('http'),
+var http = require('http'),
     fs = require('fs');
 function serveStaticFile(res, path, contentType, responseCode) {
     if (!responseCode) responseCode = 200;
@@ -16,7 +16,7 @@ http.createServer(function (req, res) {
     // Приводим URL к единому виду путем удаления 
     // строки запроса, необязательной косой черты 
     // в конце строки и приведения к нижнему регистру
-    const path = req.url.replace(/\/?(?:\?.*)?$/, '').toLowerCase();
+    var path = req.url.replace(/\/?(?:\?.*)?$/, '').toLowerCase();
     switch (path) {
         case '':
             res.writeHead(200, { 'Content-Type': 'text/plain' });
